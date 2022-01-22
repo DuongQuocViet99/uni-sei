@@ -1,6 +1,6 @@
 import { IconButton } from "@chakra-ui/react";
 
-export default function _IconButton_({ icon, color, bg='white' }) {
+export default function _IconButton_({ icon, color, click, bg='white' }) {
   return (
     <>
       <IconButton
@@ -10,9 +10,10 @@ export default function _IconButton_({ icon, color, bg='white' }) {
         icon={ icon }
         color={ color }
         bg={ bg }
-        _hover={{ bg: bg, boxShadow: 'base' }}
+        onClick={ click }
+        _hover={{ bg, boxShadow: 'base' }}
         _focus={{ outline: 'none' }}
-        _active={{ bg: bg }}
+        _active={{ bg }}
       />
     </>
   );
