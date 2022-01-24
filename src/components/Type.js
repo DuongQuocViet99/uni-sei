@@ -4,8 +4,8 @@ export default function Type({ children }) {
   return (
     <>
       <Heading 
-        size='sm' 
-        opacity='0.4' 
+        size='xs' 
+        opacity='0.5' 
         fontFamily='Quicksand'
       >
         { children }
