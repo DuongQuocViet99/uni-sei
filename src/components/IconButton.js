@@ -1,9 +1,15 @@
 import { IconButton } from "@chakra-ui/react";
 
-export default function _IconButton_({ icon, color, click, bgGradient, bg='white', size='md', rounded='sm' }) {
+export default function _IconButton_( props ) {
+  const { 
+    icon, color, click, bgGradient, editable, 
+    opacity='1', bg='white', size='md', rounded='sm' 
+  } = props
+
   return (
     <>
       <IconButton
+        opacity={ opacity }
         size={ size }
         rounded={ rounded }
         icon={ icon }
@@ -13,9 +19,10 @@ export default function _IconButton_({ icon, color, click, bgGradient, bg='white
         bgGradient={ bgGradient }
         boxShadow='lg'
         cursor='default'
-        _hover={{ bg, boxShadow: 'base' }}
+        _hover={{ bg, boxShadow: 'base', opacity: '1' }}
         _focus={{ outline: 'none' }}
         _active={{ bg }}
+        { ...editable }
       />
     </>
   );
