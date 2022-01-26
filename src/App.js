@@ -1,21 +1,22 @@
 import { ChakraProvider} from "@chakra-ui/react";
 import { Routes, Route } from "react-router-dom";
 
-import HomeIndex from "pages/home/Index";
-import GroupIndex from "pages/group/Index";
 import "App.css";
+import Home from "pages/home/View";
+import Layout from "pages/Layout";
+import Group from "pages/group/View";
 
-function App() {
+export default function App() {
   return (
     <>
       <ChakraProvider>
         <Routes>
-          <Route path='/' element={ <HomeIndex /> } />
-          <Route path='/:projectid' element={ <GroupIndex /> } />
+          <Route path='/' element={ <Layout /> }>
+            <Route index element={ <Home /> } />
+            <Route path=':projectid' element={ <Group /> } />
+          </Route>
         </Routes>
       </ChakraProvider>
     </>
   );
 }
-
-export default App;
