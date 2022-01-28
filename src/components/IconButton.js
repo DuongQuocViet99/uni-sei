@@ -2,7 +2,7 @@ import { IconButton } from "@chakra-ui/react";
 
 export default function _IconButton_( props ) {
   const { 
-    icon, color, click, bgGradient, editable, 
+    icon, color, click, editable, 
     opacity='1', bg='white', size='md', rounded='sm' 
   } = props
 
@@ -16,7 +16,6 @@ export default function _IconButton_( props ) {
         color={ color }
         bg={ bg }
         onClick={ click }
-        bgGradient={ bgGradient }
         boxShadow='lg'
         cursor='default'
         _hover={{ bg, boxShadow: 'base', opacity: '1' }}

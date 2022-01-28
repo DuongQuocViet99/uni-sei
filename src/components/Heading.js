@@ -8,6 +8,7 @@ export default function _Heading_({ children, size, fontWeight, opacity='1', let
         opacity={ opacity } 
         letterSpacing={ letterSpacing }
         fontWeight={ fontWeight }
+        color='#343434'
         fontFamily='Quicksand'
       >
         { children }
