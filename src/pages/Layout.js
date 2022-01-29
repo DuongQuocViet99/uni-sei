@@ -9,7 +9,7 @@ export default function Layout() {
     <>
       <Grid templateColumns='repeat(12, 1fr)' minH='100vh'>
         <GridItem bg='#6d6875'>
-          <VStack pt={ 9 } spacing={ 20 }>
+          <VStack pt={ 9 } spacing={ 20 } position='sticky' top={ 0 }>
             <Drawer />
             <VStack spacing={ 8 } justify='end'>
               <IconButton color='#ffb4a2' bg='#6d6875' icon={ <FiPlus fontSize='20px' /> } />
