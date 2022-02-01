@@ -6,6 +6,7 @@ export default function TextSC( props ) {
       <Text
         color={ props.color ?? '#6d6875' }
         fontFamily='Quicksand'
+        { ...props }
       >
         { props.children }
       </Text>
