@@ -1,15 +1,13 @@
 import { Text } from "@chakra-ui/react";
 
-export default function _Text_({ children, size, color }) {
+export default function TextSC( props ) {
   return (
     <>
       <Text
-        color={ color }
-        fontSize={ size }
+        color={ props.color ?? '#6d6875' }
         fontFamily='Quicksand'
-        fontWeight='light'
       >
-        { children }
+        { props.children }
       </Text>
     </>
   );

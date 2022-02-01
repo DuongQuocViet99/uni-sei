@@ -1,18 +1,15 @@
 import { Heading } from "@chakra-ui/react";
 
-export default function _Heading_({ children, size, fontWeight, opacity='1', letterSpacing='normal' }) {
+export default function HeadingSC( props ) {
   return (
     <>
       <Heading 
-        size={ size } 
-        opacity={ opacity } 
-        letterSpacing={ letterSpacing }
-        fontWeight={ fontWeight }
-        color='#343434'
-        fontFamily='Quicksand'
+        color={ props.color ?? '#6d6875' } 
+        fontFamily='Quicksand' 
+        { ...props }
       >
-        { children }
+        { props.children }
       </Heading>
     </>
-  );
+  ); 
 }
