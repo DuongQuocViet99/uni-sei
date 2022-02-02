@@ -7,10 +7,10 @@ import TooltipSC from "components/Tooltip";
 import Map from "render/Map";
 
 const featureList = [
-  { icon: FiPlus, label: 'New'}, 
-  { icon: FiSearch, label: 'Search'}, 
-  { icon: FiStar, label: 'Premium'},
-  { icon: FiHelpCircle, label: 'Q&A'}
+  { icon: FiPlus, label: 'New' }, 
+  { icon: FiSearch, label: 'Search' }, 
+  { icon: FiStar, label: 'Premium' },
+  { icon: FiHelpCircle, label: 'Q&A' }
 ];
 
 export default function Layout() {
