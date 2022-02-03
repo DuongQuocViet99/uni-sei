@@ -3,7 +3,11 @@ import useSWR from 'swr';
 const fetcher = ( ...args ) => fetch( ...args ).then( res => res.json() );
 
 export default function useProject( projectid = '' ) {
-  const { data, error } = useSWR(`http://localhost:3001/project/${ projectid }`, fetcher);
+  const { data, error } = useSWR(
+    `http://localhost:3001/project/${ projectid }`, 
+    fetcher, 
+    { refreshInterval: 1000 }
+  );
 
   return {
     project: data,
