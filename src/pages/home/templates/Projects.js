@@ -1,33 +1,26 @@
-import { Grid, Text, AvatarGroup, Avatar, Stack } from "@chakra-ui/react";
+import { Grid, Text, Stack, Flex, Spacer } from "@chakra-ui/react";
 import FilterToMap from "render/FilterToMap";
-import EditableHeading from "pages/home/templates/heading/EditableHeading";
-import Heading from "components/Heading";
+import EditableHeading from "pages/home/templates/projecttemp/EditableHeading";
+import HeadingSC from "components/Heading";
+import UserList from "./projecttemp/UserList";
+import FeatureMenu from "./projecttemp/FeatureMenu";
 
-export default function Projects({ project, user, pin }) {
+export default function Projects({ project, anchor }) {
   return (
     <>
       <Grid templateColumns='repeat(5, 1fr)' gap={ 4 }>
-        <FilterToMap data={ project } condition={ p => p.pin === pin } render={ ( i, k ) =>
-          <Stack 
-            key={ k } 
-            spacing={ 1 }
-            p={ 6 }
-            boxShadow='md'
-            rounded='xl'
-            _hover={{ boxShadow: 'base' }}
-          >
-            <Heading size='md' fontWeight='light' letterSpacing="wide">
+        <FilterToMap data={ project } condition={ p => p.anchor === anchor } render={ ( i, k ) =>
+          <Stack key={ k } spacing={ 1 } p={ 6 } boxShadow='md' rounded='xl' _hover={{ boxShadow: 'base' }}>
+            <HeadingSC size='md' letterSpacing="wide">
               <EditableHeading data={ i } />
-            </Heading>
+            </HeadingSC>
             <Stack spacing={ 6 }>
               <Text fontSize='xs' opacity='0.5'> { i.timecreate.split(' ')[0] } </Text>
-              <AvatarGroup size='xs'>
-                {
-                  user?.filter( u => u.projectid === i.projectid ).map(( i, k ) => 
-                    <Avatar key={ k } bg='#6d6875' color='white' name={ i.name } />   
-                  )
-                }
-              </AvatarGroup>
+              <Flex>
+                <UserList project={ i } />
+                <Spacer />
+                <FeatureMenu />
+              </Flex>
             </Stack>
           </Stack>
         }/>
