@@ -1,12 +1,12 @@
 import { Box, MenuDivider, MenuItem, MenuList } from "@chakra-ui/react";
-import { FiAnchor, FiCheck, FiX } from "react-icons/fi";
+import { FiAnchor, FiCheck, FiTrash2 } from "react-icons/fi";
 import axios from "axios";
 import Map from "render/Map";
 
 const featureList = [
   { text: 'pending', icon: FiAnchor },
   { text: 'done', icon: FiCheck },
-  { text: 'delete', icon: FiX }
+  { text: 'delete', icon: FiTrash2 }
 ];
 
 export default function FeatureLst({ project, reduxActchangeStatus }) {
@@ -21,7 +21,7 @@ export default function FeatureLst({ project, reduxActchangeStatus }) {
               fontFamily='Quicksand'
               fontWeight='black' 
               _hover={{ boxShadow: 'md', bg: 'white' }}
-              icon={ <i.icon /> } 
+              icon={ <i.icon fontSize='18px' /> } 
               onClick={() => {
                 if ( i.text === 'pending' ) {
                   reduxActchangeStatus( project, 1 )
