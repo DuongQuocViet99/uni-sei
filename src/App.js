@@ -1,10 +1,10 @@
-import { ChakraProvider} from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { Routes, Route } from "react-router-dom";
 
 import "App.css";
-import Home from "pages/home/View";
 import Layout from "pages/Layout";
 import Group from "pages/group/View";
+import Index from "redux/index/Bindings/State.default";
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
       <ChakraProvider>
         <Routes>
           <Route path='/' element={ <Layout /> }>
-            <Route index element={ <Home /> } />
+            <Route index element={ <Index /> } />
             <Route path=':projectid' element={ <Group /> } />
           </Route>
         </Routes>
