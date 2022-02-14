@@ -10,15 +10,14 @@ export default function DrawerSC() {
   
   return (
     <>
-      <Box p={ 6 } bg='#6d6875'>
-        <IconButtonSC  
-          onClick={ onOpen } 
-          color='#ffcdb2' 
-          bg='#6d6875' 
-          fontSize='20px'
-          icon={ <FiMenu/> } 
-        />
-      </Box>
+      <IconButtonSC
+        m={ 5 }
+        size='lg'  
+        onClick={ onOpen } 
+        color='#6d6875' 
+        fontSize='20px'
+        icon={ <FiMenu/> } 
+      />
       <Drawer isOpen={ isOpen } onClose={ onClose } placement='left'>
         <DrawerOverlay />
         <DrawerContent bg='#6d6875' rounded='0 16px 16px 0'>
