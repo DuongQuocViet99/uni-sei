@@ -15,10 +15,10 @@ export default function View({ state, reduxActdefaultState }) {
       <Stack p={ 8 } spacing={ 4 }>
         <HeadingSC size='xs' opacity='0.6'>PENDING</HeadingSC>
         <Divider borderColor='rgba(109, 104, 117, 0.4)' />
-        <ProjectRender project={ state } user={ user } anchor={ 1 } />
+        <ProjectRender project={ state } user={ user } status={ 1 } />
         <HeadingSC size='xs' opacity='0.6'>DONE</HeadingSC>
         <Divider borderColor='rgba(109, 104, 117, 0.4)' />
-        <ProjectRender project={ state } user={ user } anchor={ 0 } />
+        <ProjectRender project={ state } user={ user } status={ 0 } />
       </Stack>
     </>
   );
