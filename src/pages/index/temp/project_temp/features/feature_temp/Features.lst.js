@@ -1,49 +1,42 @@
-import { Box, MenuDivider, MenuItem, MenuList } from "@chakra-ui/react";
-import { FiAnchor, FiCheck, FiTrash2 } from "react-icons/fi";
-import axios from "axios";
+import { MenuItem, MenuList } from "@chakra-ui/react";
+import { FiCheck, FiPaperclip, FiTrash2 } from "react-icons/fi";
+import changeStatus from "http/index.changestatus";
 import Map from "render/Map";
 
 const featureList = [
-  { text: 'pending', icon: FiAnchor },
-  { text: 'done', icon: FiCheck },
-  { text: 'delete', icon: FiTrash2 }
+  { text: 'Pending', icon: FiPaperclip, status: 1 },
+  { text: 'Done', icon: FiCheck, status: 0 },
+  { text: 'Delete', icon: FiTrash2 }
 ];
 
 export default function FeatureLst({ project, reduxActchangeStatus }) {
   return (
     <>
-      <MenuList p={ 0 } rounded='none'>
+      <MenuList 
+        p={ 0 } 
+        border='none' 
+        bg='white'
+        color='sei.gray'
+        boxShadow='xl'
+        fontFamily='Quicksand' 
+        fontSize='15px'
+      >
         <Map data={ featureList } render={( i, k ) => 
-          <Box key={ k }>
-            { i.text === 'delete' && <MenuDivider borderColor='rgba(109, 104, 117, 0.4)' /> }
-            <MenuItem 
-              color='#6d6875'
-              fontFamily='Quicksand'
-              fontWeight='black' 
-              _hover={{ boxShadow: 'md', bg: 'white' }}
-              icon={ <i.icon fontSize='18px' /> } 
-              onClick={() => {
-                if ( i.text === 'pending' ) {
-                  reduxActchangeStatus( project, 1 )
-                  axios({
-                    method: 'PUT', 
-                    url: `http://localhost:3001/project/${ project.projectid }/anchor`, 
-                    data: { anchor: 1 } 
-                  })
-                } 
-                else if ( i.text === 'done' ) {
-                  reduxActchangeStatus( project, 0 )
-                  axios({
-                    method: 'PUT', 
-                    url: `http://localhost:3001/project/${ project.projectid }/anchor`, 
-                    data: { anchor: 0 } 
-                  })
-                }
-              }}
-            >
-              { i.text }
-            </MenuItem>
-          </Box>
+          <MenuItem
+            key={ k }
+            opacity={ 0.6 }
+            fontWeight='black'
+            cursor='default'
+            _hover={{ bg: 'white', color: 'sei.red', opacity: 1 }}
+            icon={ <i.icon fontSize='16px' /> }
+            onClick={() => {
+              i.text === 'Pending' && reduxActchangeStatus( project, 1 )
+              i.text === 'Done' && reduxActchangeStatus( project, 0 )
+              i.text !== 'Delete' && changeStatus( project.projectid, i.status )
+            }}
+          >
+            { i.text }
+          </MenuItem>
         }/>
       </MenuList>
     </>
