@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Preview({ project }) {
   return (
     <>
-      <Link to={`/${ project.projectid }`}>
+      <Link to={`/${ project.projectid }/task`}>
         <EditablePreview 
           isTruncated 
           maxW='120px'  
