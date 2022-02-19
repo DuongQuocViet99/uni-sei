@@ -1,6 +1,5 @@
 import { MenuItem, MenuList } from "@chakra-ui/react";
 import { FiCheck, FiPaperclip, FiTrash2 } from "react-icons/fi";
-import changeStatus from "http/index.changestatus";
 import Map from "render/Map";
 
 const featureList = [
@@ -32,7 +31,6 @@ export default function FeatureLst({ project, reduxActchangeStatus }) {
             onClick={() => {
               i.text === 'Pending' && reduxActchangeStatus( project, 1 )
               i.text === 'Done' && reduxActchangeStatus( project, 0 )
-              i.text !== 'Delete' && changeStatus( project.projectid, i.status )
             }}
           >
             { i.text }
