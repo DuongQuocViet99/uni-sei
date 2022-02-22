@@ -1,36 +1,40 @@
-import { Box, Grid, GridItem, VStack } from "@chakra-ui/react";
-import { Link, Outlet } from "react-router-dom";
-import { FiBox, FiHelpCircle, FiPlus, FiSearch, FiStar } from "react-icons/fi";
+import { Divider, Grid, GridItem, VStack } from "@chakra-ui/react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { FiBox, FiPlus, FiStar } from "react-icons/fi";
 import IconButtonSC from "components/IconButton";
 import DrawerSC from "components/Drawer";
-import TooltipSC from "components/Tooltip";
 import Map from "render/Map";
 
 const featureList = [
   { icon: FiBox, label: 'Project', url: '/' }, 
-  { icon: FiPlus, label: 'New', url: '/new' }, 
-  { icon: FiSearch, label: 'Search', url: '/search' }, 
-  { icon: FiStar, label: 'Premium', url: '/premium' },
-  { icon: FiHelpCircle, label: 'Q&A', url: '/qa' }
+  { icon: FiPlus, label: 'New', url: '/new' },  
+  { icon: FiStar, label: 'Premium', url: '/premium' }
 ];
 
 export default function Layout() {
+  const { pathname } = useLocation();
+
   return (
     <>
       <Grid templateColumns='repeat(16, 1fr)' minH='100vh'>
-        <GridItem borderRight='1px solid rgba(109, 104, 117, 0.2)'>
-          <Box position='sticky' top={ 0 }>
+        <GridItem borderRight='1px solid rgba(109, 104, 117, 0.2)' bg='sei.gray'>
+          <VStack position='sticky' top={ 0 } pt={ 6 } spacing={ 8 }>
             <DrawerSC />
-            <VStack mt={ 20 } spacing={ 6 }>
-              <Map data={ featureList } render={( i, k ) => 
-                <TooltipSC key={ k } label={ i.label } placement='right'>
-                  <Box as={ Link } to={ i.url }>
-                    <IconButtonSC opacity='0.6' fontSize='20px' icon={ <i.icon/> } />
-                  </Box>
-                </TooltipSC>
-              }/>
-            </VStack>
-          </Box>
+            <Divider borderColor='whiteAlpha.600' w='20px'/>
+            <Map data={ featureList } render={( i, k ) => 
+              <IconButtonSC
+                as={ Link }
+                to={ i.url }
+                key={ k }
+                bg='sei.gray'
+                fontSize='22px'
+                icon={ <i.icon/> } 
+                boxShadow={ i.url === pathname ? 'xl' : 'none' }
+                color={ i.url === pathname ? 'sei.yellow' : 'white' } 
+                opacity={ i.url === pathname ? '1' : '0.4' }
+              />
+            }/>
+          </VStack>
         </GridItem>
         <GridItem colSpan={ 15 }>
           <Outlet />
