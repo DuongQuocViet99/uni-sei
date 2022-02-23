@@ -6,7 +6,8 @@ export default function TooltipSC( props ) {
       <Tooltip 
         fontFamily='Quicksand' 
         fontWeight='black'
-        bg='#b5838d'
+        bg='sei.gray'
+        color='sei.yellow'
         hasArrow 
         { ...props }
       >
