@@ -1,25 +1,24 @@
-import { Divider, Stack } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import { useEffect } from "react";
-import HeadingSC from "components/Heading";
 import useProject from "datafetching/useProject";
 import useUser from "datafetching/useUser";
-import ProjectRender from "pages/index/temp/Project.render";
+import Project from "pages/index/temp/Project";
+import Map from "render/Map";
 
-export default function View({ state, reduxActdefaultState }) {
+export default function View({ state, reduxActDefaultState }) {
   const { project } = useProject();
   const { user } = useUser();
-  useEffect(() => reduxActdefaultState( project ), [ reduxActdefaultState, project ]);
-
+  useEffect(() => reduxActDefaultState( project ), [ reduxActDefaultState, project ]);
+  
   return (
     <>
-      <Stack p={ 8 } spacing={ 4 }>
-        <HeadingSC size='xs' opacity='0.6'>PENDING</HeadingSC>
-        <Divider borderColor='rgba(109, 104, 117, 0.4)' />
-        <ProjectRender project={ state } user={ user } status={ 1 } />
-        <HeadingSC size='xs' opacity='0.6'>DONE</HeadingSC>
-        <Divider borderColor='rgba(109, 104, 117, 0.4)' />
-        <ProjectRender project={ state } user={ user } status={ 0 } />
-      </Stack>
+      <Grid templateColumns='repeat(6, 1fr)' gap={ 4 } p={ 4 }>
+        <Map data={ state } render={( i, k ) =>
+          <GridItem key={ k } p={ 4 } boxShadow='md' rounded='xl' _hover={{ boxShadow: 'base' }}>
+            <Project index={ k } project={ i } user={ user } />
+          </GridItem>
+        }/>
+      </Grid>
     </>
   );
 }
