@@ -1,14 +1,12 @@
 import { MenuItem, MenuList } from "@chakra-ui/react";
-import { FiCheck, FiPaperclip, FiTrash2 } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
 import Map from "render/Map";
 
 const featureList = [
-  { text: 'Pending', icon: FiPaperclip, status: 1 },
-  { text: 'Done', icon: FiCheck, status: 0 },
   { text: 'Delete', icon: FiTrash2 }
 ];
 
-export default function FeatureLst({ project, reduxActchangeStatus }) {
+export default function FeatureLst({ project, index, reduxActDeleteProject }) {
   return (
     <>
       <MenuList 
@@ -27,10 +25,9 @@ export default function FeatureLst({ project, reduxActchangeStatus }) {
             fontWeight='black'
             cursor='default'
             _hover={{ bg: 'white', color: 'sei.red', opacity: 1 }}
-            icon={ <i.icon fontSize='16px' /> }
+            icon={ <i.icon fontSize='18px' /> }
             onClick={() => {
-              i.text === 'Pending' && reduxActchangeStatus( project, 1 )
-              i.text === 'Done' && reduxActchangeStatus( project, 0 )
+              reduxActDeleteProject( index, project.projectid )
             }}
           >
             { i.text }
