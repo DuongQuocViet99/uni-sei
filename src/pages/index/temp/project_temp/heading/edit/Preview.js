@@ -7,7 +7,7 @@ export default function Preview({ project }) {
       <Link to={`/${ project.projectid }/task`}>
         <EditablePreview 
           isTruncated 
-          maxW='120px'  
+          maxW='100px'  
           cursor='default' 
           rounded='none'
           p={ 0 }
