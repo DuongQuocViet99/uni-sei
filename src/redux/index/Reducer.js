@@ -4,8 +4,16 @@ export default function reducerForindex( state = { items: [] }, action ) {
       return { 
         items: action.payload 
       }
-    case 'CHANGE_STATUS':
-      state.items[ state.items.indexOf(action.payload.index) ].anchor = action.payload.status
+    case 'DELETE':
+      state.items = [ 
+        ...state.items.slice( 0, action.payload.index ), 
+        ...state.items.slice( action.payload.index + 1 )
+      ]
+      return { 
+        items: [ ...state.items ] 
+      }
+    case 'RENAME':
+      state.items[ action.payload.index ].name = action.payload.name
       return {
         items: [ ...state.items ]
       }
