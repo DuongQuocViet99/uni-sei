@@ -1,9 +1,14 @@
-export const reduxActdefaultState = ( project ) => ({
+export const reduxActDefaultState = ( project ) => ({
   type: 'DEFAULT_STATE',
   payload: project
 });
 
-export const reduxActchangeStatus = ( index, status ) => ({
-  type: 'CHANGE_STATUS',
-  payload: { index, status }
+export const reduxActDeleteProject = ( index, projectid ) => ({
+  type: 'DELETE',
+  payload: { index, projectid }
+})
+
+export const reduxActRename = ( index, projectid, name ) => ({
+  type: 'RENAME',
+  payload: { index, projectid, name }
 });
