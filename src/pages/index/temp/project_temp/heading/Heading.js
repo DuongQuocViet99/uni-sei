@@ -7,7 +7,7 @@ import Controls from "pages/index/temp/project_temp/heading/edit/Controls";
 import ToastSC from "components/Toast";
 import EditableS from "components/Editable";
 
-export default function Heading({ project, reduxActRename }) {
+export default function Heading({ index, project, reduxActRename }) {
   const [ projectName, setProjectName ] = useState( project.name );
   const [ bool, setBool ] = useBoolean( false );
   const toast = useToast({ duration: 3000, position: "top" });
@@ -23,7 +23,7 @@ export default function Heading({ project, reduxActRename }) {
           }}
           onSubmit={ name => {
             setBool.off()
-            reduxActRename( project, name )
+            reduxActRename( index, project.projectid, name )
             toast({ render: () => 
               <ToastSC 
                 status='success'

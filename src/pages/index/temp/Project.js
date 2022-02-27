@@ -7,7 +7,7 @@ import Heading from "redux/index/bindings/Heading.rename";
 export default function Project({ index, project, user }) {
   return (
     <>
-      <Heading project={ project } /> {/* Heading */} 
+      <Heading index={ index } project={ project } /> {/* Heading */} 
       <TextSC fontSize='xs' opacity='0.6'> 
         { project.timecreate.split(' ')[0] } 
       </TextSC>
