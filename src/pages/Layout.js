@@ -17,7 +17,7 @@ export default function Layout() {
   return (
     <>
       <Grid templateColumns='repeat(16, 1fr)' minH='100vh'>
-        <GridItem borderRight='1px solid rgba(109, 104, 117, 0.2)' bg='sei.gray'>
+        <GridItem bg='sei.gray'>
           <VStack position='sticky' top={ 0 } pt={ 6 } spacing={ 8 }>
             <DrawerSC />
             <Divider borderColor='whiteAlpha.600' w='20px'/>
