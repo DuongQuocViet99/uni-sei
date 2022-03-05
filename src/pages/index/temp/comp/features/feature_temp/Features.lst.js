@@ -11,27 +11,26 @@ export default function FeatureLst({ project, index, reduxActDeleteProject }) {
     <>
       <MenuList 
         p={ 0 } 
-        border='none' 
         bg='white'
-        color='sei.gray'
-        boxShadow='xl'
-        fontFamily='Quicksand' 
+        rounded='sm' 
+        border='none'
+        boxShadow='lg'
         fontSize='15px'
+        color='sei.gray'
+        fontFamily='Quicksand' 
       >
         <Map data={ featureList } render={( i, k ) => 
           <MenuItem
             key={ k }
             opacity={ 0.6 }
-            fontWeight='black'
             cursor='default'
+            fontWeight='black'
+            icon={ <i.icon fontSize='20px' /> }
             _hover={{ bg: 'white', color: 'sei.red', opacity: 1 }}
-            icon={ <i.icon fontSize='18px' /> }
             onClick={() => {
               reduxActDeleteProject( index, project.projectid )
             }}
-          >
-            { i.text }
-          </MenuItem>
+          > { i.text } </MenuItem>
         }/>
       </MenuList>
     </>

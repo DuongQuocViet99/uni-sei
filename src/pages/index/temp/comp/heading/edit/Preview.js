@@ -6,11 +6,11 @@ export default function Preview({ project }) {
     <>
       <Link to={`/${ project.projectid }/task`}>
         <EditablePreview 
+          p={ 0 }
           isTruncated 
           maxW='100px'  
-          cursor='default' 
           rounded='none'
-          p={ 0 }
+          cursor='default' 
           _hover={{ borderBottom: '2px solid #343434' }} 
         />
       </Link>

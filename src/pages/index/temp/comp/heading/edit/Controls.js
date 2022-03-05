@@ -1,27 +1,29 @@
 import { useEditableControls } from "@chakra-ui/react";
-import { FiCheck, FiEdit3, FiX } from "react-icons/fi";
-import IconButtonSC from "components/IconButton";
+import { FiCheck, FiEdit2, FiX } from "react-icons/fi";
+import IconButtonS from "components/IconButton";
 
 export default function Controls() {
   const { 
-    isEditing, 
     getSubmitButtonProps, 
     getCancelButtonProps, 
-    getEditButtonProps 
+    getEditButtonProps, 
+    isEditing
   } = useEditableControls();
 
   return isEditing 
   ? (
       <>
-        <IconButtonSC 
+        <IconButtonS 
+          size='sm'
+          fontSize='md'  
           opacity='0.6'
-          size='sm'  
           icon={ <FiCheck /> } 
           editable={ getSubmitButtonProps() } 
         />
-        <IconButtonSC 
-          opacity='0.6'
+        <IconButtonS 
           size='sm'  
+          fontSize='md'  
+          opacity='0.6'
           icon={ <FiX /> } 
           editable={ getCancelButtonProps() } 
         />
@@ -29,10 +31,11 @@ export default function Controls() {
     ) 
   : (
       <>
-        <IconButtonSC 
+        <IconButtonS 
+          size='sm'
+          fontSize='md'  
           opacity='0.6'
-          size='sm'  
-          icon={ <FiEdit3 /> } 
+          icon={ <FiEdit2 /> } 
           editable={ getEditButtonProps() } 
         />
       </>

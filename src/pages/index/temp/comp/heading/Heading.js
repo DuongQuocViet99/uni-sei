@@ -1,11 +1,11 @@
 import { HStack, useBoolean, useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import HeadingSC from "components/Heading";
-import Preview from "pages/index/temp/project_temp/heading/edit/Preview";
-import Input from "pages/index/temp/project_temp/heading/edit/Input";
-import Controls from "pages/index/temp/project_temp/heading/edit/Controls";
-import ToastSC from "components/Toast";
+import Controls from "pages/index/temp/comp/heading/edit/Controls";
+import Preview from "pages/index/temp/comp/heading/edit/Preview";
+import Input from "pages/index/temp/comp/heading/edit/Input";
 import EditableS from "components/Editable";
+import HeadingSC from "components/Heading";
+import ToastSC from "components/Toast";
 
 export default function Heading({ index, project, reduxActRename }) {
   const [ projectName, setProjectName ] = useState( project.name );
@@ -27,7 +27,7 @@ export default function Heading({ index, project, reduxActRename }) {
             toast({ render: () => 
               <ToastSC 
                 status='success'
-                heading='Successfully renamed' 
+                headline='Successfully renamed' 
                 text="We've renamed your project for you." 
               />
             })   

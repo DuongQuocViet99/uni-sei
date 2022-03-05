@@ -5,8 +5,8 @@ export default function FeatureBtn() {
   return (
     <>
       <MenuButton
-        opacity= { 0.6 }
         as={ IconButton }
+        opacity= { 0.6 }
         color='#6d6875'
         size='sm'  
         bg='white'
