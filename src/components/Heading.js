@@ -1,6 +1,6 @@
 import { Heading } from "@chakra-ui/react";
 
-export default function HeadingSC( props ) {
+export default function HeadingS( props ) {
   return (
     <>
       <Heading 

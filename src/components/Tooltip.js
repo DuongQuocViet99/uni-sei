@@ -1,13 +1,13 @@
 import { Tooltip } from "@chakra-ui/react";
 
-export default function TooltipSC( props ) {
+export default function TooltipS( props ) {
   return (
     <>
       <Tooltip 
         fontFamily='Quicksand' 
         fontWeight='black'
-        bg='sei.gray'
         color='sei.yellow'
+        bg='sei.gray'
         hasArrow 
         { ...props }
       >

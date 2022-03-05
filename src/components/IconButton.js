@@ -1,16 +1,16 @@
 import { IconButton } from "@chakra-ui/react";
 
-export default function IconButtonSC( props ) {
+export default function IconButtonS( props ) {
   return (
     <>
       <IconButton
-        cursor='default'
-        bg={ props.bg ?? 'white' }
+        _hover={{ bg: props.bg, opacity: '1' }}
         color={ props.color ?? '#6d6875' }
         rounded={ props.rounded ?? 'sm' }
-        _hover={{ bg: props.bg, opacity: '1' }}
         _focus={{ outline: 'none' }}
         _active={{ bg: props.bg }}
+        bg={ props.bg ?? 'white' }
+        cursor='default'
         { ...props }
         { ...props.editable }
       />
