@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 
 export default function ButtonS( props ) {
-  const { type } = props;
+  const { type, children } = props;
 
   return (
     <>
@@ -24,9 +24,7 @@ export default function ButtonS( props ) {
         border='2px'
         rounded='sm'
         { ...props }
-      >
-        { props.children }
-      </Button>
+      > { children } </Button>
     </>
   );
 }
