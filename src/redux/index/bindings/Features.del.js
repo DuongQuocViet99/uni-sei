@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { reduxActDeleteProject } from "redux/index/Action"; 
-import Features from "pages/index/temp/project_temp/features/feature_temp/Features.lst";
+import Features from "pages/index/temp/comp/features/feature_temp/Features.lst";
 
 const mapState = state => ({ state: state.reducerForindex.items });
 const mapAction = { reduxActDeleteProject };
