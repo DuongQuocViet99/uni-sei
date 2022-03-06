@@ -8,11 +8,11 @@ export default function TabsS({ children, tabs }) {
         <TabList border='2px' rounded='sm'>
           <Map data={ tabs } render={( i, k ) => 
             <Tab 
-              _selected={{ color: 'sei.red', bg: 'sei.gray' }}
-              _focus={{ outline: 'none' }}
-              _active={{ bg: 'none' }}
-              fontSize='xl'
               key={ k }
+              fontSize='xl'
+              _active={{ bg: 'sei.gray' }}
+              _focus={{ outline: 'none' }}
+              _selected={{ color: 'sei.red', bg: 'sei.gray' }}
             > { i } </Tab>
           }/>
         </TabList>
