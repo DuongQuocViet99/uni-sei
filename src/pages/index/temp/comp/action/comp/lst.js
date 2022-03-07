@@ -6,7 +6,7 @@ const featureList = [
   { text: 'Delete', icon: FiTrash2 }
 ];
 
-export default function FeatureLst({ project, index, reduxActDeleteProject }) {
+export default function LstOfAction({ project, index, reduxActDeleteProject }) {
   return (
     <>
       <MenuList 

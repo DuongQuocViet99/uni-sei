@@ -1,13 +1,13 @@
 import { HStack, useBoolean, useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import Controls from "pages/index/temp/comp/heading/edit/Controls";
-import Preview from "pages/index/temp/comp/heading/edit/Preview";
-import Input from "pages/index/temp/comp/heading/edit/Input";
+import Controls from "pages/index/temp/comp/name/edit/controls";
+import Preview from "pages/index/temp/comp/name/edit/preview";
+import Input from "pages/index/temp/comp/name/edit/input";
 import EditableS from "components/Editable";
 import HeadingSC from "components/Heading";
 import ToastSC from "components/Toast";
 
-export default function Heading({ index, project, reduxActRename }) {
+export default function Name({ index, project, reduxActRename }) {
   const [ projectName, setProjectName ] = useState( project.name );
   const [ bool, setBool ] = useBoolean( false );
   const toast = useToast({ duration: 3000, position: "top" });

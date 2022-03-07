@@ -1,17 +1,17 @@
 import { IconButton, MenuButton } from "@chakra-ui/react";
 import { FiMoreHorizontal } from "react-icons/fi";
 
-export default function FeatureBtn() {
+export default function BtnOfAct() {
   return (
     <>
       <MenuButton
-        as={ IconButton }
-        opacity= { 0.6 }
-        color='#6d6875'
         size='sm'  
         bg='white'
-        fontSize='2xl'
         rounded='sm'
+        fontSize='2xl'
+        color='#6d6875'
+        opacity= { 0.6 }
+        as={ IconButton }
         icon={ <FiMoreHorizontal /> } 
         _hover={{ opacity: 1 }}
         _focus={{ outline: 'none' }}

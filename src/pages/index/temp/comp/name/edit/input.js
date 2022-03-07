@@ -4,16 +4,16 @@ export default function Input() {
   return (
     <>
       <EditableInput 
+        rounded='none'
+        _focus={{ outline: 'none' }} 
+        borderBottom='2px solid #343434'  
         onKeyDown={ e => {
           if ( e.key === 'Enter' ) {
-            e.preventDefault()
-            return false
+            e.preventDefault();
+            return false;
           }
-          return true
+          return true;
         }}
-        rounded='none'
-        borderBottom='2px solid #343434'  
-        _focus={{ outline: 'none' }} 
       />
     </>
   );

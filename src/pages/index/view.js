@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import { useEffect } from "react";
 import useProject from "datafetching/useProject";
-import Project from "pages/index/temp/Base";
+import Project from "pages/index/temp/base";
 import useUser from "datafetching/useUser";
 import Map from "render/Map";
 
@@ -12,10 +12,24 @@ export default function Index({ state, reduxActDefaultState }) {
   
   return (
     <>
-      <Grid templateColumns='repeat(6, 1fr)' gap={ 4 } p={ 4 }>
+      <Grid 
+        p={ 4 }
+        gap={ 4 } 
+        templateColumns='repeat(6, 1fr)' 
+      >
         <Map data={ state } render={( i, k ) =>
-          <GridItem key={ k } p={ 4 } rounded='sm' boxShadow='md' _hover={{ boxShadow: 'base' }}>
-            <Project project={ i } user={ user } index={ k } />
+          <GridItem 
+            p={ 4 } 
+            key={ k } 
+            rounded='sm' 
+            boxShadow='md' 
+            _hover={{ boxShadow: 'base' }}
+          >
+            <Project 
+              index={ k } 
+              project={ i } 
+              user={ user } 
+            />
           </GridItem>
         }/>
       </Grid>
