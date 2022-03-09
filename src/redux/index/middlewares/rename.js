@@ -1,4 +1,4 @@
-import httpRenameProj from "http/Proj.rename";
+import { httpRenameProj } from "http/http";
 
 const renamed = store => next => action => {
   if ( action.type === 'RENAME' ) {

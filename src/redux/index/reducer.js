@@ -1,6 +1,6 @@
-export default function reducerForindex( state = { items: [] }, action ) {
+export default function reducer( state = { items: [] }, action ) {
   switch ( action.type ) {
-    case 'DEFAULT_STATE':
+    case 'DEFAULT':
       return { 
         items: action.payload 
       }

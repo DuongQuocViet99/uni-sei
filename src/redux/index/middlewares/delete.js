@@ -1,4 +1,4 @@
-import httpDelProj from "http/Proj.del";
+import { httpDelProj } from "http/http";
 
 const deleted = store => next => action => {
   if ( action.type === 'DELETE' ) {
