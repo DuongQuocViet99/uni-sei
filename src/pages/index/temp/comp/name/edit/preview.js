@@ -1,19 +1,19 @@
 import { EditablePreview } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import HeadingS from "components/Heading";
 
-export default function Preview({ project }) {
+export default function Preview() {
   return (
     <>
-      <Link to={`/${ project.projectid }/task`}>
+      <HeadingS 
+        size='md' 
+        letterSpacing="wide"
+      >
         <EditablePreview 
           p={ 0 }
           isTruncated 
-          maxW='100px'  
-          rounded='none'
-          cursor='default' 
-          _hover={{ borderBottom: '2px solid #343434' }} 
+          maxW='100px'
         />
-      </Link>
+      </HeadingS>
     </>
   );
 }
