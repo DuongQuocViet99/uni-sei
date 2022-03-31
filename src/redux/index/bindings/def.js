@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { reduxActDefProj } from "redux/index/action"; 
-import view from "pages/index/view";
+import view from "pages/index/cnn";
 
 const mapState = state => ({ 
   state: state.reducerIndex.items 

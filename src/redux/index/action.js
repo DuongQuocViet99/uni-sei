@@ -8,7 +8,7 @@ export const reduxActDelProj = ( index, projectid ) => ({
   payload: { index, projectid }
 })
 
-export const reduxActRenameProj = ( index, projectid, name ) => ({
+export const reduxActRenProj = ( index, projectid, name ) => ({
   type: 'RENAME',
   payload: { index, projectid, name }
 });
