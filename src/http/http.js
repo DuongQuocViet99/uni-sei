@@ -22,3 +22,21 @@ export function httpNewProc( procName, procColor, projectid ) {
     data: { procName, procColor, projectid } 
   });
 }
+
+export function httpSignUp( values ) {
+  axios({
+    method: 'POST', 
+    url: 'http://localhost:3001/authentication/signup',
+    data: { ...values } 
+  });
+}
+
+export async function httpSignIn( values ) {
+  const res = await axios({
+    method: 'POST',
+    url: 'http://localhost:3001/authentication/signin',
+    data: { ...values } 
+  });
+
+  return res;
+}
