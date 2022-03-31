@@ -1,7 +1,8 @@
-import { Divider, Grid, GridItem, VStack } from "@chakra-ui/react";
+import { Grid, GridItem, VStack } from "@chakra-ui/react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { FiBox, FiPlus, FiStar } from "react-icons/fi";
-import IconButtonSC from "components/IconButton";
+import { IBSSidebar } from "components/IconButton";
+import DividerS from "components/Divider";
 import DrawerSC from "components/Drawer";
 import Map from "render/Map";
 
@@ -16,22 +17,30 @@ export default function Layout() {
 
   return (
     <>
-      <Grid templateColumns='repeat(16, 1fr)' minH='100vh'>
-        <GridItem bg='sei.gray'>
-          <VStack position='sticky' top={ 0 } pt={ 6 } spacing={ 8 }>
+      <Grid
+        minH='100vh'
+        templateColumns='repeat(16, 1fr)'
+      >
+        <GridItem
+          borderRight='1px' 
+          borderColor='rgba(109, 104, 117, 0.2)'
+        >
+          <VStack
+            pt={ 6 }
+            top={ 0 }
+            spacing={ 8 }
+            position='sticky'
+          >
             <DrawerSC />
-            <Divider borderColor='whiteAlpha.600' w='20px'/>
+            <DividerS w='20px' />
             <Map data={ featureList } render={( i, k ) => 
-              <IconButtonSC
+              <IBSSidebar
+                key={ k }
                 as={ Link }
                 to={ i.url }
-                key={ k }
-                bg='sei.gray'
-                fontSize='22px'
                 icon={ <i.icon/> } 
                 boxShadow={ i.url === pathname ? 'xl' : 'none' }
-                color={ i.url === pathname ? 'sei.yellow' : 'white' } 
-                opacity={ i.url === pathname ? '1' : '0.4' }
+                color={ i.url === pathname ? 'sei.orange' : '#cfcdd2' } 
               />
             }/>
           </VStack>
