@@ -1,41 +1,71 @@
+import { FiBarChart2, FiEdit2, FiX } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import * as C from '@chakra-ui/react';
-import { FiBarChart2, FiX } from 'react-icons/fi';
-import IconButtonSC from 'components/IconButton';
+import { IBSDrawerBtn, IBSDrawerOutline, IBSDrawerClose } from 'components/IconButton';
+import { BTSAuth, BTSDrawer } from 'components/Button';
 
 export default function DrawerS() {
   const { isOpen, onOpen, onClose } = C.useDisclosure();
-  
+  const token = localStorage.getItem('TOKEN');
+
   return (
     <>
-      <IconButtonSC 
+      {/* OPEN */}
+      <IBSDrawerBtn 
         onClick={ onOpen }
-        bg='sei.gray'
-        color='white'  
-        fontSize='2xl'
+        icon={ <FiBarChart2 /> } 
         transform='rotate(90deg)'
-        icon={ <FiBarChart2/> } 
       />
-      <C.Drawer isOpen={ isOpen } onClose={ onClose } placement='left'>
-        <C.DrawerOverlay />
-        <C.DrawerContent bg='#6d6875' rounded='0 16px 16px 0'>
+      {/* CONTENT */}
+      <C.Drawer 
+        placement='left'
+        isOpen={ isOpen } 
+        onClose={ onClose } 
+      >
+        <C.DrawerOverlay bg='rgba(109, 104, 117, 0.4)' />
+        <C.DrawerContent bg='sei.gray'>
+          {/* CLOSE BTN */}
           <C.Box p={ 6 }>
-            <IconButtonSC
-              boxShadow='md'
-              _hover={{ boxShadow: 'sm' }} 
+            <IBSDrawerClose 
+              icon={ <FiX /> }
               onClick={ onClose } 
-              color='#ffcdb2' 
-              bg='#6d6875'
-              fontSize='20px' 
-              icon={ <FiX/> } 
             />
           </C.Box>
+          {/* HEADER */}
           <C.DrawerHeader>
+            <C.Divider borderColor='rgba(243, 219, 206, 0.4)' />
           </C.DrawerHeader>
-            
+          {/* BODY */}
           <C.DrawerBody>
+            { token &&
+              <C.ButtonGroup isAttached variant='outline' >
+                <BTSDrawer>
+                  Yasuo hasagi
+                </BTSDrawer>
+                <IBSDrawerOutline icon={ <FiEdit2 /> } />
+              </C.ButtonGroup>
+            } 
+            { !token &&
+              <C.Stack>
+                <BTSAuth as={ Link } to='/signin'>
+                  Sign in
+                </BTSAuth>
+                <BTSAuth as={ Link } to='/signup'>
+                  Sign up
+                </BTSAuth>
+              </C.Stack>
+            }
           </C.DrawerBody>
-
-          <C.DrawerFooter>
+          {/* FOOTER */}
+          <C.DrawerFooter alignSelf='start'>
+            { token && 
+              <BTSDrawer onClick={() => {
+                localStorage.removeItem('TOKEN');
+                onClose();
+              }}>
+                Sign out
+              </BTSDrawer>
+            }
           </C.DrawerFooter>
         </C.DrawerContent>
       </C.Drawer>
