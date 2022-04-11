@@ -1,9 +1,9 @@
 import { Grid, GridItem, VStack } from "@chakra-ui/react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { FiBox, FiPlus, FiStar } from "react-icons/fi";
-import { IBSSidebar } from "components/IconButton";
-import DividerS from "components/Divider";
-import DrawerSC from "components/Drawer";
+import { IBtnSidebar } from "components/IconButton";
+import DividerOrigin from "components/Divider";
+import DrawerS from "components/Drawer";
 import Map from "render/Map";
 
 const featureList = [
@@ -19,33 +19,29 @@ export default function Layout() {
     <>
       <Grid
         minH='100vh'
-        templateColumns='repeat(16, 1fr)'
+        templateColumns='repeat(18, 1fr)'
       >
-        <GridItem
-          borderRight='1px' 
-          borderColor='rgba(109, 104, 117, 0.2)'
-        >
+        <GridItem>
           <VStack
-            pt={ 6 }
+            pt={ 5 }
             top={ 0 }
-            spacing={ 8 }
-            position='sticky'
+            spacing={ 10 }
+            position='sticky' 
           >
-            <DrawerSC />
-            <DividerS w='20px' />
-            <Map data={ featureList } render={( i, k ) => 
-              <IBSSidebar
-                key={ k }
-                as={ Link }
-                to={ i.url }
-                icon={ <i.icon/> } 
-                boxShadow={ i.url === pathname ? 'xl' : 'none' }
-                color={ i.url === pathname ? 'sei.orange' : '#cfcdd2' } 
-              />
-            }/>
+            <DrawerS />
+            <DividerOrigin w='20px' />
+            <VStack spacing={ 6 }>
+              <Map data={ featureList } render={( i, k ) => 
+                <IBtnSidebar
+                  i={ i }
+                  key={ k }
+                  pathname={ pathname }
+                />
+              }/>
+            </VStack>
           </VStack>
         </GridItem>
-        <GridItem colSpan={ 15 }>
+        <GridItem colSpan={ 17 }>
           <Outlet />
         </GridItem>
       </Grid>
