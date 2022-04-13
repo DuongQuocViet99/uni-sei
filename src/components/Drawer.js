@@ -1,70 +1,60 @@
-import { FiBarChart2, FiEdit2, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import * as C from '@chakra-ui/react';
-import { IBSDrawerBtn, IBSDrawerOutline, IBSDrawerClose } from 'components/IconButton';
-import { BTSAuth, BTSDrawer } from 'components/Button';
+import { IBtnDrawer, IBtnDrawerClose } from 'components/IconButton';
+import { BtnDrawer } from 'components/Button';
+import DividerOrigin from './Divider';
 
 export default function DrawerS() {
   const { isOpen, onOpen, onClose } = C.useDisclosure();
   const token = localStorage.getItem('TOKEN');
+  
+  function signOut() {
+    localStorage.removeItem('TOKEN');
+    onClose();
+  }
 
   return (
     <>
-      {/* OPEN */}
-      <IBSDrawerBtn 
-        onClick={ onOpen }
-        icon={ <FiBarChart2 /> } 
-        transform='rotate(90deg)'
-      />
-      {/* CONTENT */}
+      <IBtnDrawer onClick={ onOpen } />
+      
       <C.Drawer 
         placement='left'
         isOpen={ isOpen } 
         onClose={ onClose } 
       >
-        <C.DrawerOverlay bg='rgba(109, 104, 117, 0.4)' />
-        <C.DrawerContent bg='sei.gray'>
-          {/* CLOSE BTN */}
-          <C.Box p={ 6 }>
-            <IBSDrawerClose 
-              icon={ <FiX /> }
-              onClick={ onClose } 
-            />
+        <C.DrawerOverlay bg='rgba(36, 36, 35, 0.4)' />
+        <C.DrawerContent bg='sei.black'>
+          <C.Box p={ 5 }>
+            <IBtnDrawerClose onClick={ onClose } />
           </C.Box>
-          {/* HEADER */}
           <C.DrawerHeader>
-            <C.Divider borderColor='rgba(243, 219, 206, 0.4)' />
+            <DividerOrigin />
           </C.DrawerHeader>
-          {/* BODY */}
           <C.DrawerBody>
-            { token &&
-              <C.ButtonGroup isAttached variant='outline' >
-                <BTSDrawer>
-                  Yasuo hasagi
-                </BTSDrawer>
-                <IBSDrawerOutline icon={ <FiEdit2 /> } />
-              </C.ButtonGroup>
-            } 
-            { !token &&
+            { token ?
+              <BtnDrawer 
+                w='full'
+                as={ Link }
+                to='/account'
+              >
+                Tài khoản
+              </BtnDrawer>
+            :
               <C.Stack>
-                <BTSAuth as={ Link } to='/signin'>
+                <BtnDrawer as={ Link } to='/signin'>
                   Sign in
-                </BTSAuth>
-                <BTSAuth as={ Link } to='/signup'>
+                </BtnDrawer>
+                <BtnDrawer as={ Link } to='/signup'>
                   Sign up
-                </BTSAuth>
+                </BtnDrawer>
               </C.Stack>
             }
           </C.DrawerBody>
-          {/* FOOTER */}
-          <C.DrawerFooter alignSelf='start'>
+          <C.DrawerFooter>
             { token && 
-              <BTSDrawer onClick={() => {
-                localStorage.removeItem('TOKEN');
-                onClose();
-              }}>
+              <BtnDrawer onClick={() => signOut() }>
                 Sign out
-              </BTSDrawer>
+              </BtnDrawer>
             }
           </C.DrawerFooter>
         </C.DrawerContent>
