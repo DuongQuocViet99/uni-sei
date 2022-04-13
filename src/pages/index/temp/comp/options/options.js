@@ -2,7 +2,7 @@ import { FiCheck, FiEdit2, FiMoreHorizontal, FiTrash2, FiX } from "react-icons/f
 import * as C from "@chakra-ui/react";
 import { IBtnPopover, IBtnPopoverItem } from "components/IconButton";
 import AlertDialogDel from "redux/index/bindings/del";
-import { DSPopover } from "components/Divider";
+import { DividerPopover } from "components/Divider";
 import { HStack } from "@chakra-ui/react";
 
 export default function Option({ project, index }) {
@@ -46,7 +46,7 @@ export default function Option({ project, index }) {
                           icon={ <FiCheck /> } 
                           editable={ getSubmit() } 
                         />
-                        <DSPopover />
+                        <DividerPopover />
                         <IBtnPopoverItem 
                           icon={ <FiX /> } 
                           editable={ getCancel() }
@@ -56,9 +56,9 @@ export default function Option({ project, index }) {
                     :
                     <>
                       <IBtnPopoverItem icon={ <FiEdit2 /> } editable={ getEdit() }/>
-                      <DSPopover />
+                      <DividerPopover />
                       <IBtnPopoverItem icon={ <FiTrash2 /> } onClick={ onOpen }/>
-                      <DSPopover />
+                      <DividerPopover />
                       <IBtnPopoverItem icon={ <FiX /> } onClick={ onClose }/>
                     </>
                   }
