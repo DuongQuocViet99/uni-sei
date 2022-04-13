@@ -1,6 +1,6 @@
 import * as C from "@chakra-ui/react";
 import { useRef } from "react";
-import { BTSDel, BTSCancel } from "components/Button";
+import { BtnDelete, BtnCancel } from "components/Button";
 
 export default function AlertDialogDel({ isOpen, onClose, index, project, reduxActDelProj }) {
   const cancelRef = useRef();
@@ -32,15 +32,15 @@ export default function AlertDialogDel({ isOpen, onClose, index, project, reduxA
             </C.AlertDialogBody>
             <C.AlertDialogFooter> 
               <C.HStack>
-                <BTSCancel
+                <BtnCancel
                   ref={ cancelRef }
                   onClick={ onClose }
                 >
                   Cancel
-                </BTSCancel>
-                <BTSDel onClick={() => delProj()}> 
+                </BtnCancel>
+                <BtnDelete onClick={() => delProj()}> 
                   Delete 
-                </BTSDel>
+                </BtnDelete>
               </C.HStack>
             </C.AlertDialogFooter>
           </C.AlertDialogContent>

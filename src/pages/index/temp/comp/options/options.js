@@ -1,6 +1,6 @@
 import { FiCheck, FiEdit2, FiMoreHorizontal, FiTrash2, FiX } from "react-icons/fi";
 import * as C from "@chakra-ui/react";
-import { IBSPopoverBtn, IBSPopoverItem } from "components/IconButton";
+import { IBtnPopover, IBtnPopoverItem } from "components/IconButton";
 import AlertDialogDel from "redux/index/bindings/del";
 import { DSPopover } from "components/Divider";
 import { HStack } from "@chakra-ui/react";
@@ -24,15 +24,14 @@ export default function Option({ project, index }) {
           <>
             <C.PopoverTrigger>
               <C.Box>
-                <IBSPopoverBtn icon={ <FiMoreHorizontal /> } />
+                <IBtnPopover icon={ <FiMoreHorizontal /> } />
               </C.Box>
             </C.PopoverTrigger>
             <C.PopoverContent
               w='auto'
+              bg='#4B4B4B'
               rounded='sm'
-              bg='sei.gray'
               border='none'
-              fontFamily='Quicksand'
               _focus={{ outline: 'none' }}
             >
               <C.PopoverHeader 
@@ -43,25 +42,24 @@ export default function Option({ project, index }) {
                   { isEditing ?
                     <>
                       <HStack>
-                        <IBSPopoverItem 
+                        <IBtnPopoverItem 
                           icon={ <FiCheck /> } 
                           editable={ getSubmit() } 
                         />
                         <DSPopover />
-                        <IBSPopoverItem 
+                        <IBtnPopoverItem 
                           icon={ <FiX /> } 
                           editable={ getCancel() }
-
                         />
                       </HStack>
                     </>
                     :
                     <>
-                      <IBSPopoverItem icon={ <FiEdit2 /> } editable={ getEdit() }/>
+                      <IBtnPopoverItem icon={ <FiEdit2 /> } editable={ getEdit() }/>
                       <DSPopover />
-                      <IBSPopoverItem icon={ <FiTrash2 /> } onClick={ onOpen }/>
+                      <IBtnPopoverItem icon={ <FiTrash2 /> } onClick={ onOpen }/>
                       <DSPopover />
-                      <IBSPopoverItem icon={ <FiX /> } onClick={ onClose }/>
+                      <IBtnPopoverItem icon={ <FiX /> } onClick={ onClose }/>
                     </>
                   }
                 </HStack>
