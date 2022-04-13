@@ -1,20 +1,20 @@
 import { Divider } from "@chakra-ui/react";
 
-export default function DividerS( props ) {
+export default function DividerOrigin( props ) {
   return (
     <Divider 
-      borderColor='rgba(109, 104, 117, 0.4)' 
+      borderColor='rgba(109, 104, 117, 0.6)' 
       { ...props } 
     />
   );
 }
 
-export function DSPopover( props ) {
+export function DividerPopover( props ) {
   return (
     <Divider 
       h='14px' 
       orientation='vertical' 
-      borderColor='rgba(243, 219, 206, 0.4)' 
+      borderColor='rgba(154, 140, 152, 0.6)' 
     />
   );
 }
